@@ -1,4 +1,6 @@
 library(dplyr)
+setwd("~/TDDE01/TDDE01-Labs/lab1/assignement3")
+
 diabetes = read.csv("pima-indians-diabetes.csv", header = FALSE)
 colnames(diabetes) <- c("Number of times pregnant", "Plasma glucose concentration", "Diastolic blood pressure","Triceps skinfold thickness", "2-Hour serum insulin", "Body mass index", "Diabetes pedigree function", "Age", "Diabetes")
 
@@ -41,7 +43,7 @@ print(paste("Misclassification Error (r=0.5):", misclassification_error))
 
 
 
-#Making a plot with all trhe predicted values
+#Making a plot with all the predicted values
 plot(train$`Age`, train$`Plasma glucose concentration`, main = "Predicted values for Diabetes (r = 0.5)",
      xlab = "age", ylab = "Plasma glucose concentration",
      pch = 16, col = ifelse(Pred_r50== 1, 'red', 'blue'))
@@ -123,6 +125,7 @@ plot(train$`Age`, train$`Plasma glucose concentration`, main = "Predicted values
 
 #3.5
 
+#Y = w0 + w1*x1+ w2*x2 + w3* z1 
 
 #z1 = x1^4
 train$z1 = train$`Plasma glucose concentration`^4

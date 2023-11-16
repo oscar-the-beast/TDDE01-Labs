@@ -167,14 +167,14 @@ for (k in 1:30) {
   true_number <- as.numeric(as.factor(valid$V65))
   
   # Calculate cross-entropy
-  cross_entropy[k] <- -sum(log(probabilities[cbind(1:nrow(valid), true_number)]))
+  cross_entropy_errors[k] <- -sum(log(probabilities[cbind(1:nrow(valid), true_number)]))
   
 }
 
 # Plot the dependence of cross-entropy on K
-plot(1:30, cross_entropy, type = "l", col = "blue", xlab = "K", ylab = "Cross-Entropy", main = "Cross-Entropy vs. K")
+plot(1:30, cross_entropy_errors, type = "l", col = "blue", xlab = "K", ylab = "Cross-Entropy", main = "Cross-Entropy vs. K")
 
 # Find the optimal K based on the minimum cross-entropy
-optimal_k <- which.min(cross_entropy)
+optimal_k <- which.min(cross_entropy_errors)
 cat("Optimal K:", optimal_k, "\n")
 
