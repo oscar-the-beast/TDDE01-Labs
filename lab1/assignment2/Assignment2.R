@@ -51,7 +51,6 @@ n = nrow(scaledTrainingData) #number of rows
 #-n/2*log(2*pi) is a constant
 #-n/2*log(sigma^2) # penalizes models with larger variance
 #- (1 / (2 * sigma^2)) * sum((y - x %*% theta)^2) sum of squared residuals, penalizing models that do not fit the data
-#theta is the vector of model parameters
 # sigma^2 is the variance of errors
 Loglikelihood = function(theta, sigma) {
   return(-n / 2 * log(2 * pi*sigma^2) - (1 / (2 * sigma^2)) * sum((Y - X %*% theta)^2))
