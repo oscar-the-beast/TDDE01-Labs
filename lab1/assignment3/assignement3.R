@@ -1,5 +1,4 @@
 library(dplyr)
-setwd("~/TDDE01/TDDE01-Labs/lab1/assignement3")
 
 diabetes = read.csv("pima-indians-diabetes.csv", header = FALSE)
 colnames(diabetes) <- c("Number of times pregnant", "Plasma glucose concentration", "Diastolic blood pressure","Triceps skinfold thickness", "2-Hour serum insulin", "Body mass index", "Diabetes pedigree function", "Age", "Diabetes")
@@ -60,7 +59,7 @@ coefficients <- coef(m1)
 #coefficients are
 
 # coefficients[1] = -5.9134 (intercepts)
-# coefficients[2] = 0.0356 (Plasma glucose)
+# coefficients[2] = 0.0356 (Plasma glucose concentration)
 # coefficients[3] = 0.0248 (age)
 # decission boundry equation: 0 = -5.9124 + 0.0356 * x1 + 0.0248 * x2 //x1 = plasmaglucose, x2 = age// -->
 # x1 = -5.9124/(-0.0356) + (0.0248/(-0.0356)) * x2 
