@@ -1,5 +1,6 @@
-
+library(glmnet)
 library(dplyr) 
+
 #Read data from csv file
 tecator = read.csv("tecator.csv", header = TRUE)
 
@@ -32,6 +33,30 @@ MSE_training = mean((trainingData$Fat - pred_training)^2)
 MSE_test = mean((testData$Fat - pred_test)^2)
 
 
+##### Task 2 #####
+#################
+
+
+#Cost function = RSS + lambda * sum (|beta|)
+#cost = Mean((trainingData$Fat - pred_training)^2) + lambda * sum(abs(coef(m1)))
+
+##### Task 3 #####
+#################
+
+x = trainingData %>% select(1:100)
+y = trainingData$Fat
+m_lasso=glmnet(x, y,family="gaussian", alpha=1)
+
+
+
+
+plot(m_lasso, xvar = "lambda", label = TRUE)
+
+
+# It looks from the plot that lambda can have values from 0.4 to 0.9 
+
+##### Task 4 #####
+#################
 
 
 
