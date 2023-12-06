@@ -79,8 +79,9 @@ opt_lambda = cv_lasso$lambda.min
 cat("Optimal lambda:", opt_lambda, "\n")
 
 
-#Calculating all how many coefficients that are not zero when using the optimal lambda
-num_variables = sum(coef(cv_lasso, s = opt_lambda) != 0)
+#Calculating all how many coefficients that are not zero when using the optimal lambda, minus one due to intercept
+num_variables = sum(coef(cv_lasso, s = opt_lambda) != 0) - 1
+
 cat("Number of Variables Chosen:", num_variables, "\n")
 
 #Splitting the test data in x (predictors) and y (target)
@@ -99,6 +100,4 @@ abline(a = 0, b = 1, col = "red")
 #Calculating MSE for the Lasso model
 MSE_lasso_test = mean((y_test - lasso_test_pred)^2)
 cat("MSE fo the lasso model on the test data:", MSE_lasso_test, "\n")
-
-
 
